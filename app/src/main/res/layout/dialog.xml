@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500px"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500px"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20px"
+            android:layout_marginTop="30px"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:text="Would you like to capture or take from photo gallery?"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_margin="60px"
+                android:background="@drawable/camers"
+                android:id="@+id/capturePhoto"
+                />
+
+            <ImageButton
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_margin="60px"
+                android:background="@drawable/files"
+                android:id="@+id/files"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="200px"
+            android:layout_height="75px"
+            android:layout_marginTop="30px"
+            android:layout_marginBottom="30px"
+            android:background="@drawable/layout_bg"
+            android:textAllCaps="false"
+            android:textColor="#696060"
+            android:text="Cancel"
+            android:id="@+id/cancel"/>
+    </LinearLayout>
+
+</RelativeLayout>
