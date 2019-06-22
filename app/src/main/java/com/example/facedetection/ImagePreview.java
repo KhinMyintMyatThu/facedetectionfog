@@ -16,12 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import org.bytedeco.flycapture.FlyCapture2.Utilities;
 import org.bytedeco.javacpp.Pointer;
-import org.bytedeco.javacv.AndroidFrameConverter;
-import org.bytedeco.javacv.Frame;
-import org.bytedeco.javacv.Java2DFrameUtils;
-import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.bytedeco.opencv.opencv_core.MatVector;
 import org.bytedeco.opencv.opencv_face.LBPHFaceRecognizer;
 import org.opencv.android.Utils;
@@ -38,9 +33,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import static com.example.facedetection.LBP.printMatrix;
 import static org.bytedeco.opencv.global.opencv_core.CV_32SC1;
+import static org.bytedeco.opencv.global.opencv_core.CV_8UC3;
 
 public class ImagePreview extends AppCompatActivity implements View.OnClickListener {
 
@@ -168,11 +166,26 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
 
                     mat = orgImgMat.submat(rect);
 
-                    Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY); //Changing Mat from rgb to gray scale
+                    mat = new Mat();
+
+                  //  Mat grayscaleMat=new Mat();
+
+                    System.out.println("RGB mat " + mat);
+
+                    Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY); //Changing Mat from rgb to grayscale
+
+                    System.out.println("Grayscale mat " + mat);
+
+//                    Mat grayscaleMat=new Mat();
+//                    grayscaleMat.convertTo(mat, CV_8UC3);
+//
+//                    System.out.println("3 channel grayscle mat"+ grayscaleMat);
 
                     /*
                      *JavaCv matvector
                      */
+                    System.setProperty("org.bytedeco.javacpp.maxphysicalbytes", "0");
+                    System.setProperty("org.bytedeco.javacpp.maxbytes", "0");
                     MatVector images = new MatVector(facesArray.length);
                     org.bytedeco.opencv.opencv_core.Mat labels = new org.bytedeco.opencv.opencv_core.Mat(facesArray.length, 1, CV_32SC1);
 
@@ -186,6 +199,24 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
                     Imgproc.equalizeHist(channels.get(0), channels.get(0));
                     Core.merge(channels, mat);
 
+                    System.out.println("Histogram mat " + mat);
+
+                    /**
+                     * Convert mat to two dimensional array
+                     */
+                    double[][] matArray = ImagePreview.getMultiChannelArray(mat);
+                    System.out.println(Arrays.deepToString(matArray));
+
+                    LBP lbp = new LBP(1, 1);
+
+                    System.out.println("Neighbourhood");
+                    printMatrix(lbp.neighbourhood);
+                    byte[][] resultLBP = lbp.getLBP(matArray);
+
+                    System.out.println("VarianceImage");
+                    printMatrix(resultLBP);
+
+
 
                     /*
                      *Convert Opencv mat to javacv mat
@@ -197,6 +228,10 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
                     };
                     images.put(mat2);
 
+                    System.out.print("Java cv mat " + images.get(0));
+
+
+
 
                     /**
                      * LBPHFaceRecognizer
@@ -205,15 +240,26 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
                     faceRecognizer.train(images, labels);
 
 
-
                     /**
                      * MatVector and mat data from facerecognizer
                      */
+
                     MatVector matVector= faceRecognizer.getHistograms();
+
+
                     org.bytedeco.opencv.opencv_core.Mat faceRecognizerMat= new org.bytedeco.opencv.opencv_core.Mat();
 
                     faceRecognizerMat= matVector.get(0);
 
+
+
+                    String faceRecognizerString = matVector.toString();
+                    System.out.println("Face Recognizer String " + faceRecognizerString);
+
+                    System.out.println("face Recognizer mat col " + faceRecognizerMat.col(0));
+
+                    org.bytedeco.opencv.opencv_core.Mat mat3 = faceRecognizerMat.row(0);
+                    org.bytedeco.opencv.opencv_core.Mat mat4 = faceRecognizerMat.col(0);
 
 
                     /**
@@ -221,11 +267,20 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
                      */
                     Mat faceRecognizerMat2= new Mat(faceRecognizerMat.rows(),faceRecognizerMat.cols(), CvType.CV_8UC1);
 
+                    double[][] facerecogmatArray = ImagePreview.getMultiChannelArray(faceRecognizerMat2);
+                    System.out.println(Arrays.deepToString(facerecogmatArray));
+
+                    Mat faceRecognizerMat3 = new Mat(mat3.rows(), mat3.cols(), CvType.CV_8UC1);
+                    Mat faceRecognizerMat4 = new Mat(mat4.rows(), mat4.cols(), CvType.CV_8UC1);
+                    System.out.println("Face Recognizer Mat 2" + faceRecognizerMat2);
+                    System.out.println("Face Recognizer Mat 3" + faceRecognizerMat3);
+                    System.out.println("Face Recognizer Mat 4" + faceRecognizerMat4);
+
 
                     /**
                      * Mat to byteArray
                      */
-                    System.out.println("Face Recognizer Mat 2"+ faceRecognizerMat2);
+
 //                    /**
 //                     * ToDo test to show image and delete it later
 //                     */
@@ -278,6 +333,25 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+    }
+
+    public static double[][] getMultiChannelArray(Mat m) {
+        //first index is pixel, second index is channel
+        int numChannels = m.channels();//is 3 for 8UC3 (e.g. RGB)
+        int frameSize = m.rows() * m.cols();
+        byte[] byteBuffer = new byte[frameSize * numChannels];
+        m.get(0, 0, byteBuffer);
+
+        System.out.print("number of channels " + numChannels);
+
+        //write to separate R,G,B arrays
+        double[][] out = new double[frameSize][numChannels];
+        for (int p = 0, i = 0; p < frameSize; p++) {
+            for (int n = 0; n < numChannels; n++, i++) {
+                out[p][n] = byteBuffer[i];
+            }
+        }
+        return out;
     }
 }
 
