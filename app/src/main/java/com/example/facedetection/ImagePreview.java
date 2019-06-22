@@ -38,7 +38,6 @@ import java.util.List;
 
 import static com.example.facedetection.LBP.printMatrix;
 import static org.bytedeco.opencv.global.opencv_core.CV_32SC1;
-import static org.bytedeco.opencv.global.opencv_core.CV_8UC3;
 
 public class ImagePreview extends AppCompatActivity implements View.OnClickListener {
 
@@ -166,20 +165,14 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
 
                     mat = orgImgMat.submat(rect);
 
-                    mat = new Mat();
+                 //   mat = new Mat();
 
-                  //  Mat grayscaleMat=new Mat();
 
                     System.out.println("RGB mat " + mat);
 
-                    Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY); //Changing Mat from rgb to grayscale
+                    Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY); //Changing Mat from rgb to gray scale
 
                     System.out.println("Grayscale mat " + mat);
-
-//                    Mat grayscaleMat=new Mat();
-//                    grayscaleMat.convertTo(mat, CV_8UC3);
-//
-//                    System.out.println("3 channel grayscle mat"+ grayscaleMat);
 
                     /*
                      *JavaCv matvector
