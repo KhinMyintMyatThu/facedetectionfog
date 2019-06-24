@@ -38,6 +38,7 @@ import java.util.List;
 
 import static com.example.facedetection.LBP.printMatrix;
 import static org.bytedeco.opencv.global.opencv_core.CV_32SC1;
+import static org.bytedeco.opencv.global.opencv_core.CV_8UC;
 
 public class ImagePreview extends AppCompatActivity implements View.OnClickListener {
 
@@ -170,9 +171,11 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
 
                     System.out.println("RGB mat " + mat);
 
-                    Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY); //Changing Mat from rgb to gray scale
+                    Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY, 3); //Changing Mat from rgb to gray scale
+//                    Mat grayScaleMat= mat;
+//                    grayScaleMat.convertTo(grayScaleMat, CV_8UC(3));
 
-                    System.out.println("Grayscale mat " + mat);
+                    System.out.println("Grayscale mat channel " + mat.channels());
 
                     /*
                      *JavaCv matvector
@@ -193,6 +196,21 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
                     Core.merge(channels, mat);
 
                     System.out.println("Histogram mat " + mat);
+
+                    /**
+                     * Opencv mat to binary
+                     */
+//                    Mat binaryMat = new Mat();
+//                    Imgproc.threshold(mat, binaryMat, 200, 500, Imgproc.THRESH_BINARY);
+//                    System.out.println("Binary mat" + binaryMat);
+
+
+                    /**
+                     * Opencv mat to two dimension
+                     */
+                    //double[][] twoDimensionalMat= new double[][];
+                    System.out.print("mat rows "+ mat.rows()+" , mat cols "+mat.cols());
+
 
                     /**
                      * Convert mat to two dimensional array
@@ -219,6 +237,8 @@ public class ImagePreview extends AppCompatActivity implements View.OnClickListe
                             address = mat.getNativeObjAddr();
                         }
                     };
+
+                    
                     images.put(mat2);
 
                     System.out.print("Java cv mat " + images.get(0));
