@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/src/org/opencv/engine/OpenCVEngineInterface.aidl
+ * Original file: /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/src/org/opencv/engine/OpenCVEngineInterface.aidl
  */
 package org.opencv.engine;
 /**

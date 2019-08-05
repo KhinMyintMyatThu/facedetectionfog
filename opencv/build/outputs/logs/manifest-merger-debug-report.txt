@@ -1,37 +1,37 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:1-6:12
+ADDED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:1-6:12
 	package
-		ADDED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:3:7-27
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
+		ADDED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:3:7-27
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
 	android:versionName
-		ADDED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:5:7-34
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
+		ADDED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:5:7-34
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:2:11-69
+		ADDED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:2:11-69
 	android:versionCode
-		ADDED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml:4:7-33
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
+		ADDED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml:4:7-33
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
 uses-sdk
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-		ADDED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+		ADDED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-		ADDED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
-		INJECTED from /Users/kmmt/AndroidStudioProjects/Facedetection/opencv/AndroidManifest.xml
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+		ADDED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml
+		INJECTED from /Users/jueju/Desktop/FaceDetectionFog/FaceDetection/opencv/AndroidManifest.xml

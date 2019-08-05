@@ -25,7 +25,7 @@ android {
             jniLibs.srcDirs = ['../../jni']
             java.srcDirs = ['src']  // TODO Use original files instead of copied into build directory
             aidl.srcDirs = ['src']
-            res.srcDirs = ['/Users/kmmt/AndroidStudioProjects/Facedetection/opencv/res']
+            res.srcDirs = ['/Users/jueju/Desktop/FaceDetection/opencv/res']
             manifest.srcFile 'AndroidManifest.xml'
         }
     }
